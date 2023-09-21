@@ -4,12 +4,12 @@ const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
-search.addEventListener('click', () =>){
+search.addEventListener('click', () =>) {
 
     const APIKey = '052323138f49495a1d92998185df9033';
     const city = document.querySelector('.search-box input').value;
     
-    if (city ==='')
+    if (city === '')
     return;
 
     fetch('https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}')
@@ -17,19 +17,19 @@ search.addEventListener('click', () =>){
     .then(json => {
         if (json.cod === '404')  {
             container.style.heigth = '400px';
-            weatherBox.style.display ='nome';
-            weatherDetails.style.display = 'nome';
-            error404.style.display='black';
+            weatherBox.style.display ='none';
+            weatherDetails.style.display = 'none';
+            error404.style.display='block';
             error404.classList.add('fadeIn');
             return;
     }
 
-    error404.style.display ='none';
+    error404.style.display = 'none';
     error404.classList.remove('fadeIn');
 
-    const imagem = document.querySelector('.weather-box img');
+    const image = document.querySelector('.weather-box img');
     const temprature = document.querySelector('.weather-box .temperature');
-    const discription = document.querySelector('.weather-box .description');
+    const description = document.querySelector('.weather-box .description');
     const humidity = document.querySelector('.weather-details .humidity span');
     const wind = document.querySelector('.weather-details .wind span');
 
